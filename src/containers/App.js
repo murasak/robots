@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBountry from '../components/ErrorBoundry';
 import './app.css';
 
 import { setSearchField, requestRobots } from '../action';
-import Header from '../components/Header'
+import MainPage from '../components/MainPage';
 
 const mapStateToProps = state => {
     return {
@@ -27,52 +23,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         robots: [],
-    //         // searchfield: ''
-    //     }
-    // }
-
-    componentDidMount() {
-        // fetch('https://jsonplaceholder.typicode.com/users')
-        //     .then(res => {
-        //         return res.json();
-        //     })
-        //     .then(users => {
-        //         this.setState({ robots: users });
-        //     })
-        this.props.onRequestRobots();
-    }
-
-    // onSearchChange = (event) => {
-    //     this.setState({ searchfield: event.target.value });
-    // }
-
     render() {
-        // const { robots } = this.state;
-        const { searchField, onSearchChange, robots, isPending } = this.props;
-        const filterRobots = robots.filter(robot => {
-            return robot.name.toLowerCase().includes(searchField.toLowerCase());
-        })
-        // return !robots.length ?
-        return isPending?
-            <h1>Loading</h1> :
-            (
-                <div className='tc'>
-                    <Header />
-                    <SearchBox searchChange={onSearchChange} />
-                    <Scroll>
-                        <ErrorBountry>
-                            <CardList robots={filterRobots} />
-                        </ErrorBountry>
-                    </Scroll>
-
-                </div>
-            )
+       return <MainPage {...this.props }/>
     }
-
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
