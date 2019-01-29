@@ -4,7 +4,8 @@ import Card from './Card';
 require('../setupTest');
 
 it('expect to render Card component', () => {
-    expect(shallow(<Card />).length).toEqual(1)
+    // expect(shallow(<Card />).length).toEqual(1)
+    expect(shallow(<Card />)).toMatchSnapshot();
 })
 
 // console.log(shallow(<Card />));
