@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/robots/static/css/1.64bbcf54.chunk.css"
   },
   {
-    "revision": "e022392640f0748bf85098dcf5a82398",
+    "revision": "1177f2e7e08248e8f9d4654883d191e2",
     "url": "/robots/index.html"
   }
 ];
